@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace DwitTech.DotNetCoreApp.Data.Context
+namespace DwitTech.AccountService.Data.Context
 {
-    public class DefaultDbContext : DbContext
+    public class AccountDbContext : DbContext
     {
-        public DefaultDbContext(DbContextOptions options) : base(options)
+        public AccountDbContext(DbContextOptions options) : base(options)
         {
         }
 

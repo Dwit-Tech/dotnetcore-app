@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["src/DwitTech.DotNetCoreApp.WebApi/DwitTech.DotNetCoreApp.WebApi.csproj", "DwitTech.DotNetCoreApp.WebApi/"]
+COPY ["src/DwitTech.AccountService.WebApi/DwitTech.AccountService.WebApi.csproj", "DwitTech.AccountService.WebApi/"]
 COPY . .
-WORKDIR "src/DwitTech.DotNetCoreApp.WebApi"
-RUN dotnet restore "DwitTech.DotNetCoreApp.WebApi.csproj"
-RUN dotnet build "DwitTech.DotNetCoreApp.WebApi.csproj" -c Release -o /app/build
+WORKDIR "src/DwitTech.AccountService.WebApi"
+RUN dotnet restore "DwitTech.AccountService.WebApi.csproj"
+RUN dotnet build "DwitTech.AccountService.WebApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DwitTech.DotNetCoreApp.WebApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "DwitTech.AccountService.WebApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "DwitTech.DotNetCoreApp.WebApi.dll"]
+ENTRYPOINT ["dotnet", "DwitTech.AccountService.WebApi.dll"]
