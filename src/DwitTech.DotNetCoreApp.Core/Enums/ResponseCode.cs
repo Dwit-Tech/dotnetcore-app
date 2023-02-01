@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DwitTech.DotNetCoreApp.Core.Enums
+namespace DwitTech.AccountService.Core.Enums
 {
     public enum ResponseCode
     {
@@ -12,3 +12,14 @@ namespace DwitTech.DotNetCoreApp.Core.Enums
         ERROR = 01,
     }
 }
+
+/* 
+ * Rename Solution
+ * Rename Projects
+ * Find and replace DotNetCoreApp
+ * Rename Db connection string
+ * Rename Db Context
+ * Rename Db
+ * Reference projects
+ * Rename in yml file
+ * */
