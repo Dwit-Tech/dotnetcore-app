@@ -22,7 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DwitTech.DotNetCoreApp.Core\DwitTech.AccountService.Core.csproj" />
+    <ProjectReference Include="..\..\src\DwitTech.AccountService.Core\DwitTech.AccountService.Core.csproj" />
+    <ProjectReference Include="..\..\src\DwitTech.AccountService.Core\DwitTech.AccountService.Core.csproj" />
   </ItemGroup>
 
 </Project>
