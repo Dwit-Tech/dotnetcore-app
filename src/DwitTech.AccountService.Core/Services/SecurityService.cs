@@ -26,19 +26,7 @@ namespace DwitTech.AccountService.Core.Services
             {
                 return null;
             }
-            string collectedpassword = userpassword;
-            byte[] hashpassword;
-            byte[] asciibyte;
 
-            asciibyte= ASCIIEncoding.ASCII.GetBytes(collectedpassword);
-            hashpassword = new MD5CryptoServiceProvider().ComputeHash(asciibyte);
-            return ConvertByteToString(hashpassword);
-        }
-
-        /*public bool VerifiedHashPasswords(byte hashpassword1, byte hashpassword2)
-        {
-            
-        }*/
     }
 
 }
