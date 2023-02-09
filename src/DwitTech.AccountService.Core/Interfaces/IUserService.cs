@@ -9,10 +9,6 @@ namespace DwitTech.AccountService.Core.Interfaces
 {
     public interface IUserService
     {
-        IEnumerable<UserReadDto> GetAllUsers();
-        UserReadDto CreateUser(UserCreateDto user);
-        UserReadDto GetUserById(int id);
-        void UpdateUser(UserCreateDto user);
-        void DeleteUser(UserReadDto user);
+        
     }
 }

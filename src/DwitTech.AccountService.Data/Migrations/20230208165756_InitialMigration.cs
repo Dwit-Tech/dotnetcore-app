@@ -28,7 +28,6 @@ namespace DwitTech.AccountService.Data.Migrations
                     PostalCode = table.Column<string>(type: "text", nullable: false),
                     ZipCode = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
-                    Confirm_Password = table.Column<string>(type: "text", nullable: false),
                     ModifiedOnUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>

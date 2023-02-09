@@ -11,12 +11,12 @@ using DwitTech.AccountService.Data.Repository;
 
 namespace DwitTech.AccountService.Core.Services
 {
-    public class UserService : IUserService
+    public class UserService 
     {
 
-                   
 
 
-            }
+
+    }
 
 }

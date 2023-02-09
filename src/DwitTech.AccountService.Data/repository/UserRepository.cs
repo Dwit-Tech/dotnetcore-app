@@ -17,6 +17,6 @@ namespace DwitTech.AccountService.Data.Repository
 
         List<User> MockUsers = new List<User>(); //Using this as the database
 
-            
-        }
+
+    }
 }

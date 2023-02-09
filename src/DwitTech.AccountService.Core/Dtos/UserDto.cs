@@ -36,5 +36,4 @@ namespace DwitTech.AccountService.Core.Dtos
         public string PostalCode { get; set; }
     }
 
-    //iuserrepository => getuser, createuser, modify and create user values should be manipulated
 }

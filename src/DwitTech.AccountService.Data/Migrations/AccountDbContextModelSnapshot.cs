@@ -43,10 +43,6 @@ namespace DwitTech.AccountService.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Confirm_Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Country")
                         .IsRequired()
                         .HasColumnType("text");

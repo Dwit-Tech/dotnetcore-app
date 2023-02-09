@@ -55,9 +55,6 @@ namespace DwitTech.AccountService.Data.Entities
         [Range(8,16)]
         public string Password { get; set; }
 
-        [Required]
-        [Range(8, 16)]
-        public string Confirm_Password { get; set; }
 
     }
 }
