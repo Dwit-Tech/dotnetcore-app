@@ -46,7 +46,7 @@ namespace DwitTech.AccountService.Core.Services
             var baseUrl = GetBaseUrl();
             var activationUrl = GetActivationUrl(userEmail);
             var RecipientName = GetNameFromDb(userEmail);
-            string filePath = "Templates\\" + templateName;
+            string filePath = "C:/Users/LENOVO/Desktop/GIT/DWIT_Internship/E-Commerce-Project/account-service/src/DwitTech.AccountService.Core/Templates/" + templateName;
             StreamReader str = new StreamReader(filePath);
             var readTemplateText = str.ReadToEnd();
             str.Close();
