@@ -8,24 +8,33 @@ using System.Threading.Tasks;
 
 namespace DwitTech.AccountService.Core.Services
 {
-    public class SecurityService
+    public class SecurityService : ISecurityService
     {
-        private string ConvertByteToString(byte[] hashpassword)
+        
+        public string HashString(string userPassword)
         {
-            StringBuilder hashedstringoutput = new StringBuilder(hashpassword.Length);
-            for (int i = 0; i < hashedstringoutput.Length; i++)
-            {
-                hashedstringoutput.Append(hashpassword[i].ToString("X2"));
-            }
-            return hashedstringoutput.ToString();
-        }
-
-        public string GenerateHash(string userpassword)
-        {
-            if(userpassword == null)
+            if (userPassword == null)
             {
                 return null;
             }
+            string collectedPassword = userPassword;
+            byte[] hashPassword;
+            byte[] asciibyte;
+
+            asciibyte = ASCIIEncoding.ASCII.GetBytes(collectedPassword);
+            hashPassword = new MD5CryptoServiceProvider().ComputeHash(asciibyte);
+            return ConvertByteToString(hashPassword);
+        }
+
+         private string ConvertByteToString(byte[] hashPassword)
+        {
+            StringBuilder hashedStringOutput = new StringBuilder(hashPassword.Length);
+            for (int i = 0; i < hashedStringOutput.Length; i++)
+            {
+                hashedStringOutput.Append(hashPassword[i].ToString("X2"));
+            }
+            return hashedStringOutput.ToString();
+        }
 
     }
 
