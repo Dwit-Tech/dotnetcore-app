@@ -35,9 +35,7 @@ namespace DwitTech.AccountService.Core.Dtos
         [Required]
         public string PostalCode { get; set; }
 
-        [Required]
-        [Range(8, 16)]
-        public string Password { get; set; }
+        
     }
 
 }
