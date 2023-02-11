@@ -13,9 +13,7 @@ namespace DwitTech.AccountService.Data.Repository
     
     public class UserRepository : IUserRepository
     {
-        private readonly AccountDbContext _accountDbContext;
-
-        List<User> MockUsers = new List<User>(); //Using this as the database
+        
 
 
     }
