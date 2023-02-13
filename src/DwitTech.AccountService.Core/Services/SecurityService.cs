@@ -11,27 +11,27 @@ namespace DwitTech.AccountService.Core.Services
     public class SecurityService : ISecurityService
     {
         
-        public string HashString(string userPassword)
+        public string HashString(string InputString)
         {
-            if (userPassword == null)
+            if (InputString == null)
             {
                 return null;
             }
-            string collectedPassword = userPassword;
-            byte[] hashPassword;
+            /*string collectedPassword = inputString;*/
+            byte[] InputStringHash;
             byte[] asciibyte;
 
-            asciibyte = ASCIIEncoding.ASCII.GetBytes(collectedPassword);
-            hashPassword = new MD5CryptoServiceProvider().ComputeHash(asciibyte);
-            return ConvertByteToString(hashPassword);
+            asciibyte = ASCIIEncoding.ASCII.GetBytes(InputString);
+            InputStringHash = new MD5CryptoServiceProvider().ComputeHash(asciibyte);
+            return ConvertByteToString(InputStringHash);
         }
 
-         private string ConvertByteToString(byte[] hashPassword)
+         private string ConvertByteToString(byte[] InputString)
         {
-            StringBuilder hashedStringOutput = new StringBuilder(hashPassword.Length);
+            StringBuilder hashedStringOutput = new StringBuilder(InputString.Length);
             for (int i = 0; i < hashedStringOutput.Length; i++)
             {
-                hashedStringOutput.Append(hashPassword[i].ToString("X2"));
+                hashedStringOutput.Append(InputString[i].ToString("X2"));
             }
             return hashedStringOutput.ToString();
         }
