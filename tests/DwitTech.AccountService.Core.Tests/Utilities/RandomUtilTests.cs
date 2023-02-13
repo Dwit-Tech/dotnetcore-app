@@ -27,16 +27,16 @@ namespace DwitTech.AccountService.Core.Tests.Utilities
 
             //Assert
             Assert.Multiple(
-                ()=> Assert.Equal(expected, actual1),
-                ()=> Assert.Equal(expected, actual2),
-                ()=> Assert.Equal(expected, actual3),
-                ()=> Assert.Equal(expected, actual4),
-                ()=> Assert.Equal(expected, actual5),
-                ()=> Assert.Equal(expected, actual6),
-                ()=> Assert.Equal(expected, actual7),
-                ()=> Assert.Equal(expected, actual8),
-                ()=> Assert.Equal(expected, actual9),
-                ()=> Assert.Equal(expected, actual10)
+                ()=> Assert.NotEqual(expected, actual1),
+                ()=> Assert.NotEqual(expected, actual2),
+                ()=> Assert.NotEqual(expected, actual3),
+                ()=> Assert.NotEqual(expected, actual4),
+                ()=> Assert.NotEqual(expected, actual5),
+                ()=> Assert.NotEqual(expected, actual6),
+                ()=> Assert.NotEqual(expected, actual7),
+                ()=> Assert.NotEqual(expected, actual8),
+                ()=> Assert.NotEqual(expected, actual9),
+                ()=> Assert.NotEqual(expected, actual10)
                 );
         }
     }

@@ -10,9 +10,32 @@ namespace DwitTech.AccountService.Core.Utilities
     public static class RandomUtil 
 
     {
-        internal static readonly char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
+        internal static readonly string characterOptions = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        
         public static string GenerateUniqueCode(int numberOfCharacters=20, bool useNumbers = true, bool useAlphabets = true, bool useSymbols = false)
         {
+            string newCharacterOptions = characterOptions;
+
+            if (useNumbers == false)
+            {
+                string numbers = "1234567890";
+                newCharacterOptions = characterOptions.Replace(numbers, "");
+            }
+
+            if (useAlphabets == false)
+            {
+                string alphabets = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                newCharacterOptions = characterOptions.Replace(alphabets, "");
+            }
+
+            if (useSymbols == true)
+            {
+                string symbols = "!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+                newCharacterOptions += symbols;
+            }
+
+            char[] chars = newCharacterOptions.ToCharArray();
+
             byte[] data = new byte[4 * numberOfCharacters];
             using (var crypto = RandomNumberGenerator.Create())
             {

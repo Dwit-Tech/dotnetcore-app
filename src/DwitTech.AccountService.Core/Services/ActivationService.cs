@@ -1,4 +1,5 @@
 ﻿using DwitTech.AccountService.Core.Interfaces;
+using DwitTech.AccountService.Core.Utilities;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -12,48 +13,49 @@ namespace DwitTech.AccountService.Core.Services
 {
     public class ActivationService : IActivationService
     {
-        private string GetActivationCodeFromDb(string userEmail)
+        private static string GetActivationCode()
         {
-            return "pttigkgkgkgkgk6666k6k6k6k6k6k6k1123ndncj";
+            var activationCode = RandomUtil.GenerateUniqueCode();
+            return activationCode;
         }
 
-        private string GetNameFromDb(string userEmail)
+        private string GetNameFromDb(string userEmail) //TODO
         {
             return "Mike";
         }
 
-        private static string GetBaseUrl()
+        private static string GetBaseUrl() //TODO
         {
             return "Test.com";
         }
 
-        private string GetActivationUrl(string userEmail)
+        private static string GetActivationUrl()
         {
             string baseUrl = GetBaseUrl();
-            string activationCode = GetActivationCodeFromDb(userEmail);
-            string activationUrl = baseUrl + "/TestAppName/ActivateAccount/" + activationCode;
+            string activationCode = GetActivationCode();
+            string activationUrl = baseUrl + "/Account/Activation/" + activationCode;
             return activationUrl;
         }
 
-        private bool SendMail(string from, string to, string subject, string body, string cc = "", string bcc = "")
+        private static bool SendMail(string fromEmail, string toEmail, string subject, string body, string cc = "", string bcc = "") //TODO
         {
             return true;
         }
 
-        public bool SendActivationEmail(string from, string userEmail, string templateName, string subject = "Account Activation")
+        public bool SendActivationEmail(string fromEmail, string toEmail, string templateName, string subject = "Account Activation", string cc = "", string bcc = "")
         {
-            string userActivationCode = GetActivationCodeFromDb("example@gmail.com");
             var baseUrl = GetBaseUrl();
-            var activationUrl = GetActivationUrl(userEmail);
-            var RecipientName = GetNameFromDb(userEmail);
-            string filePath = "C:/Users/LENOVO/Desktop/GIT/DWIT_Internship/E-Commerce-Project/account-service/src/DwitTech.AccountService.Core/Templates/" + templateName;
+            var activationUrl = GetActivationUrl();
+            var RecipientName = GetNameFromDb(toEmail);
+            string trimmedTemplateName = templateName.Trim();
+            string filePath = "Templates/" + trimmedTemplateName;
             StreamReader str = new StreamReader(filePath);
             var readTemplateText = str.ReadToEnd();
             str.Close();
             readTemplateText = readTemplateText.Replace("{{name}}", RecipientName) ;
             readTemplateText = readTemplateText.Replace("{{activationUrl}}", activationUrl);
             string body = readTemplateText.ToString();
-            var response = SendMail(from, userEmail, subject, body);
+            var response = SendMail(fromEmail, toEmail, subject, body, cc, bcc);
 
             return response;
         }
