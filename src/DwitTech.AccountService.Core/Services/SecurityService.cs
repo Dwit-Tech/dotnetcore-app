@@ -17,7 +17,7 @@ namespace DwitTech.AccountService.Core.Services
             {
                 return null;
             }
-            /*string collectedPassword = inputString;*/
+            string collectedPassword = inputString;
             byte[] inputStringHash;
             byte[] asciiByte;
 
