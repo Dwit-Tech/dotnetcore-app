@@ -16,16 +16,16 @@ namespace DwitTech.AccountService.Core.Tests
         [InlineData("I am testing my hash", 
             "4ed43d04e7808a252608996917cbab8")]
         [InlineData(null, null)]
-        public void HashString_String_return_Hash(string InputString, string HashString)
+        public void HashString_String_return_Hash(string inputString, string hashString)
         {
             //Arrange
             ISecurityService SecurityService = new SecurityService();
 
             //Act
-            var actual = SecurityService.HashString(InputString);
+            var actual = SecurityService.HashString(inputString);
 
             //Assert
-            Assert.Equal(HashString, actual);
+            Assert.Equal(hashString, actual);
         }
 
     }
