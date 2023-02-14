@@ -16,19 +16,19 @@ namespace DwitTech.AccountService.Core.Utilities
         {
             string newCharacterOptions = characterOptions;
 
-            if (useNumbers == false)
+            if (!useNumbers)
             {
                 string numbers = "1234567890";
                 newCharacterOptions = characterOptions.Replace(numbers, "");
             }
 
-            if (useAlphabets == false)
+            if (!useAlphabets)
             {
                 string alphabets = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 newCharacterOptions = characterOptions.Replace(alphabets, "");
             }
 
-            if (useSymbols == true)
+            if (useSymbols)
             {
                 string symbols = "!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
                 newCharacterOptions += symbols;

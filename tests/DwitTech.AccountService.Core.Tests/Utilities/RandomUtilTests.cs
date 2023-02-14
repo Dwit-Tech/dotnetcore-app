@@ -9,11 +9,13 @@ namespace DwitTech.AccountService.Core.Tests.Utilities
 {
     public class RandomUtilTests
     {
-        [Theory]
-        [InlineData("op1wUje9Y1SVY0qWAUS4")]
-        public void GenerateUniqueCode_Returns_Unique_twenty_Character_Alphanum_string(string expected)
+        [Fact]
+        public void GenerateUniqueCode_Returns_Unique_twenty_Character_Alphanum_string()
         {
-            //Arrange/Act
+            //Arrange
+            string expected = RandomUtil.GenerateUniqueCode();
+            
+            //Act
             string actual1 = RandomUtil.GenerateUniqueCode();
             string actual2 = RandomUtil.GenerateUniqueCode();
             string actual3 = RandomUtil.GenerateUniqueCode();
