@@ -10,7 +10,7 @@ namespace DwitTech.AccountService.Core.Utilities
     public static class RandomUtil 
 
     {
-        internal static readonly string characterOptions = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        internal static readonly string characterOptions = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
         
         public static string GenerateUniqueCode(int numberOfCharacters=20, bool useNumbers = true, bool useAlphabets = true, bool useSymbols = false)
         {
@@ -19,19 +19,19 @@ namespace DwitTech.AccountService.Core.Utilities
             if (!useNumbers)
             {
                 string numbers = "1234567890";
-                newCharacterOptions = characterOptions.Replace(numbers, "");
+                newCharacterOptions = newCharacterOptions.Replace(numbers, "");
             }
 
             if (!useAlphabets)
             {
                 string alphabets = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                newCharacterOptions = characterOptions.Replace(alphabets, "");
+                newCharacterOptions = newCharacterOptions.Replace(alphabets, "");
             }
 
-            if (useSymbols)
+            if (!useSymbols)
             {
                 string symbols = "!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-                newCharacterOptions += symbols;
+                newCharacterOptions = newCharacterOptions.Replace(symbols, "");
             }
 
             char[] chars = newCharacterOptions.ToCharArray();
