@@ -21,7 +21,7 @@ namespace DwitTech.AccountService.Core.Services
             _configuration = configuration;
         }
 
-        private static string GetActivationCode()
+        public string GetActivationCode()
         {
             var activationCode = RandomUtil.GenerateUniqueCode();
             return activationCode;
@@ -32,7 +32,7 @@ namespace DwitTech.AccountService.Core.Services
             return _configuration.GetSection("BaseUrl").Value;
         }
 
-        private string GetActivationUrl()
+        public string GetActivationUrl()
         {
             string baseUrl = GetBaseUrl();
             string activationCode = GetActivationCode();

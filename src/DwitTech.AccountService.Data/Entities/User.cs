@@ -9,11 +9,6 @@ namespace DwitTech.AccountService.Data.Entities
 {
     public class User : BaseEntity
     {
-
-        [Required]
-        [MaxLength(25)]
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(25)]
         public string Firstname { get; set; }
@@ -55,6 +50,10 @@ namespace DwitTech.AccountService.Data.Entities
         [Range(8,16)]
         public string Password { get; set; }
 
-          
+        public UserStatus Status { get; set; }
+
+        public string RefreshActivationCode { get; set; }
+        public DateTime ActivationCodeCreated { get; set; }
+        public DateTime ActivationCodeExpired { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DwitTech.AccountService.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -35,7 +36,8 @@ namespace DwitTech.AccountService.Core.Dtos
         [Required]
         public string PostalCode { get; set; }
 
-        
+        public UserStatus Status { get; set; }
+
     }
 
 }
